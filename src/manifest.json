@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "中文字体优化",
+  "version": "1.0.5",
+  "description": "为所有网站的中文（CJK）字符替换为 HarmonyOS Sans / OPPO Sans / MiSans，拉丁字符保持网站原有字体不变。点击工具栏图标可一键切换字体或在当前网站禁用。",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "中文字体优化"
+  },
+  "permissions": ["storage", "activeTab"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["fonts/*"],
+      "matches": ["<all_urls>"],
+      "use_dynamic_url": false
+    }
+  ]
+}
